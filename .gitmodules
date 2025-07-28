@@ -1,0 +1,3 @@
+[submodule "mini-framework"]
+	path = mini-framework
+	url = https://github.com/bernotieno/mini-framework.git
