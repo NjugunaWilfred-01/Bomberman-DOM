@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #222;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#game {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background: #333;
+    border: 2px solid #555;
+}
+
+.game-board {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.player {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: #4CAF50;
+    border-radius: 4px;
+    transition: transform 0.1s ease;
+}
+
+.bomb {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #FF5722;
+    border-radius: 50%;
+    animation: bomb-pulse 0.5s infinite alternate;
+}
+
+.block {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: #8B4513;
+    border: 1px solid #654321;
+}
+
+.wall {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: #666;
+    border: 1px solid #444;
+}
+
+.explosion {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: #FFC107;
+    animation: explosion 0.3s ease-out;
+}
+
+.hud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+.hud span {
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+@keyframes bomb-pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+@keyframes explosion {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
