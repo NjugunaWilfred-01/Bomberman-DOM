@@ -3,7 +3,7 @@
  * Integrates game loop with mini-framework's virtual DOM
  */
 
-import { vdom } from '../mini-framework/src/framework.js';
+import { vdom } from '../../mini-framework/src/framework.js';
 import { GameLoop } from './game-loop.js';
 
 export class GameRenderer {
