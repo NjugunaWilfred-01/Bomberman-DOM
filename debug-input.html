@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Input Issue</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script type="module">
+        import { h, vdom } from './mini-framework/src/framework.js';
+        
+        let state = {
+            nickname: '',
+            renderCount: 0
+        };
+        
+        function handleInput(e) {
+            console.log('Input event:', e.target.value);
+            state.nickname = e.target.value;
+            state.renderCount++;
+            render();
+        }
+        
+        function render() {
+            console.log('Rendering, nickname:', state.nickname, 'render count:', state.renderCount);
+            
+            const vnode = h('div', { class: 'nickname-screen' }, [
+                h('div', { class: 'nickname-container' }, [
+                    h('h1', {}, 'Debug Input Test'),
+                    h('p', {}, `Current value: "${state.nickname}"`),
+                    h('p', {}, `Render count: ${state.renderCount}`),
+                    h('input', {
+                        type: 'text',
+                        value: state.nickname,
+                        placeholder: 'Type here...',
+                        oninput: handleInput
+                    }),
+                    h('p', {}, 'Try typing in the input above. Check console for logs.')
+                ])
+            ]);
+            
+            vdom.mount(vnode, document.getElementById('app'));
+        }
+        
+        // Initial render
+        render();
+    </script>
+</body>
+</html>
