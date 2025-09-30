@@ -1,0 +1,19 @@
+{
+  "name": "bomberman-server",
+  "version": "1.0.0",
+  "description": "WebSocket server for Bomberman DOM game",
+  "main": "simple-server.js",
+  "scripts": {
+    "start": "node simple-server.js",
+    "dev": "nodemon simple-server.js"
+  },
+  "dependencies": {
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["bomberman", "websocket", "game", "server"],
+  "author": "Njuguna Wilfred",
+  "license": "MIT"
+}
